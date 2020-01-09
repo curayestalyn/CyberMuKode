@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\include_SDL2">
+      <UniqueIdentifier>{45149d9c-920a-47a0-ba92-e11699a3d6c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src_SDL2">
+      <UniqueIdentifier>{163a0dac-a38d-4e92-a659-e31c4463236b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src_GAME">
+      <UniqueIdentifier>{8d72a2cb-24d9-48a7-84e3-82aa693b6b24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src_GAME\menu">
+      <UniqueIdentifier>{64ef6633-e7e4-4eb3-96bc-b906a24e43e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src_GAME\puntuazioa">
+      <UniqueIdentifier>{f0cd3f59-caad-4f60-a3a8-20ca3ec0b63e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src_GAME\puntuazioa\data">
+      <UniqueIdentifier>{8b8f0908-4fed-4fcc-bc51-10343b351985}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src_GAME\jokoa">
+      <UniqueIdentifier>{44910927-e4b4-42e8-abdb-ade97ee0d215}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\include_GAME">
+      <UniqueIdentifier>{86db5a01-6d49-4804-92cd-d179e876956a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\include_GAME\menu">
+      <UniqueIdentifier>{b50572c3-a5b7-49b9-b6ee-54954f96b442}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\include_GAME\puntuazioa">
+      <UniqueIdentifier>{6b06b771-a0c8-4f2d-8b02-6976e8427597}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\include_GAME\jokoa">
+      <UniqueIdentifier>{9a229d8d-3ffd-468a-bf26-c3b72c527b40}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="game\menu\src\menu.c">
+      <Filter>Source Files\src_GAME\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="game\menu\src\minijokoa.c">
+      <Filter>Source Files\src_GAME\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="game\puntuazioa\src\puntuazio.c">
+      <Filter>Source Files\src_GAME\puntuazioa</Filter>
+    </ClCompile>
+    <ClCompile Include="game\jokoa\src\funjokoa.c">
+      <Filter>Source Files\src_GAME\jokoa</Filter>
+    </ClCompile>
+    <ClCompile Include="game\jokoa\src\jokoa.c">
+      <Filter>Source Files\src_GAME\jokoa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src_SDL2\ebentoak.c">
+      <Filter>Source Files\src_SDL2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src_SDL2\graphics.c">
+      <Filter>Source Files\src_SDL2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src_SDL2\imagen.c">
+      <Filter>Source Files\src_SDL2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src_SDL2\soinua.c">
+      <Filter>Source Files\src_SDL2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src_SDL2\text.c">
+      <Filter>Source Files\src_SDL2</Filter>
+    </ClCompile>
+    <ClCompile Include="main.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="game\include.h">
+      <Filter>Header Files\include_GAME</Filter>
+    </ClInclude>
+    <ClInclude Include="game\menu\include\menu.h">
+      <Filter>Header Files\include_GAME\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="game\menu\include\minijokoa.h">
+      <Filter>Header Files\include_GAME\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="game\puntuazioa\include\puntuazioa.h">
+      <Filter>Header Files\include_GAME\puntuazioa</Filter>
+    </ClInclude>
+    <ClInclude Include="img\img.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sound\sound.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_SDL2\ebentoak.h">
+      <Filter>Header Files\include_SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_SDL2\graphics.h">
+      <Filter>Header Files\include_SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_SDL2\imagen.h">
+      <Filter>Header Files\include_SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_SDL2\soinua.h">
+      <Filter>Header Files\include_SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_SDL2\text.h">
+      <Filter>Header Files\include_SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="game\jokoa\include\jokoa.h">
+      <Filter>Header Files\include_GAME\jokoa</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="game\puntuazioa\data\puntuazioa.txt">
+      <Filter>Source Files\src_GAME\puntuazioa\data</Filter>
+    </Text>
+  </ItemGroup>
+</Project>

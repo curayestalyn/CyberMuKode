@@ -1,0 +1,4 @@
+1	estalyn	1000
+2	ainhoa	3000
+3	aitor	4000
+4	andoni	5000
