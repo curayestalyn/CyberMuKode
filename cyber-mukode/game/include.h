@@ -29,10 +29,10 @@ typedef struct JOKO_ELEMENTUA {
     MOTA mota;
 } JOKO_ELEMENTUA;
 
-typedef enum MUGIMENDUA { STOP, UP, RIGHT, LEFT, DOWN }MUGIMENDUA;
+typedef enum MUGIMENDUA { STOP, UPL, RIGHTL, LEFTL, DOWNL, UPR, RIGHTR, LEFTR, DOWNR } MUGIMENDUA;
 
 
-EGOERA jokatu(void);
+EGOERA JOKOA_jokatu(int jokalaria);
 EGOERA JOKOA_egoera(JOKO_ELEMENTUA lehenengoPertsonaia, JOKO_ELEMENTUA bigarrenPertsonaia);
 int  AMAIERA_jokoAmaierakoa(EGOERA egoera);
 POSIZIOA MUGIMENDUA_rightUpMugitu(POSIZIOA posizioa);

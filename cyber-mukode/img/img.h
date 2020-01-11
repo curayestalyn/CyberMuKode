@@ -9,12 +9,13 @@
 #define IRUDIA_MENU_ITXIJOKOA ".\\img\\menu\\itxi-jokoa.bmp"
 #define IRUDIA_MENU_PAUSAJARRAITU ".\\img\\menu\\pausa-jarraitu.bmp"
 #define IRUDIA_MENU_PAUSAMENU ".\\img\\menu\\pausa-menu.bmp"
+#define IRUDIA_MENU_IDATZIIZENA ".\\img\\menu\\idatzi-izena-2.bmp"
 //************* Irudiak minijokoa ****************
 #define IRUDIA_MAPA_1 ".\\img\\menu\\minijokoa\\mapa-1.bmp"
 #define IRUDIA_MAPA_2 ".\\img\\menu\\minijokoa\\mapa-2.bmp"
 #define IRUDIA_MINIJOKOA_PERTSONAIA_IBAY ".\\img\\menu\\minijokoa\\ibay.bmp"
 #define IRUDIA_MINIJOKOA_PERTSONAIA_NAIRU ".\\img\\menu\\minijokoa\\nairu.bmp"
-#define IRUDIA_MINIJOKOA_PERTSONAIA_THELIEL ".\\img\\menu\\minijokoa\\thaliel.bmp"
+#define IRUDIA_MINIJOKOA_PERTSONAIA_THALIEL ".\\img\\menu\\minijokoa\\thaliel.bmp"
 #define IRUDIA_MINIJOKOA_PERTSONAIA_TRYDAN ".\\img\\menu\\minijokoa\\trydan.bmp"
 #define IRUDIA_MINIJOKOA_MINIDOWN_1 ".\\img\\menu\\minijokoa\\mini-down-1.bmp"
 #define IRUDIA_MINIJOKOA_MINIDOWN_2 ".\\img\\menu\\minijokoa\\mini-down-2.bmp"
@@ -28,6 +29,8 @@
 #define IRUDIA_MINIJOKOA_MINILEFT_1 ".\\img\\menu\\minijokoa\\mini-left-1.bmp"
 #define IRUDIA_MINIJOKOA_MINILEFT_2 ".\\img\\menu\\minijokoa\\mini-left-2.bmp"
 #define IRUDIA_MINIJOKOA_MINILEFT_3 ".\\img\\menu\\minijokoa\\mini-left-3.bmp"
+#define IRUDIA_MINIJOKOA_KREDITUAK ".\\img\\menu\\minijokoa\\kredituak.bmp"
+#define IRUDIA_MINIJOKOA_LAGUNTZA ".\\img\\menu\\minijokoa\\laguntza.bmp"
 
 //****************** Irudiak background ****************
 #define IRUDIA_ESZENA_BORROKA_1 ".\\img\\background\\borroka-1.bmp"

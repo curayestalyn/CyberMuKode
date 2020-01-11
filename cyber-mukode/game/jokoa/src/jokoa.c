@@ -1,14 +1,15 @@
 #include "include.h"
 
-EGOERA jokatu(void)
+EGOERA JOKOA_jokatu(int jokalaria)
 {
-    int denbora = 2, pixelKopurua = 200, pixelUp, pixelDown, kont = 0, ebentu = 0;
-    MUGIMENDUA mugitu = STOP;
+    int denbora = 2, pixelKopurua =100, pixelUp, pixelDown, kont = 0, ebentuR = 0, ebentuL;
+    MUGIMENDUA mugituR = STOP;
+    MUGIMENDUA mugituL = STOP;
     EGOERA  egoera = JOLASTEN;
     JOKO_ELEMENTUA lehenengoPertsonaia, bigarrenPertsonaia, lehenengoEszenatokia;
     POSIZIOA aux;
 
-
+    //egoera = JOLASTEN;
 
     //************* Eszena tokiaren hasierako posizioa **********************
 
@@ -38,19 +39,25 @@ EGOERA jokatu(void)
     //*********** Pertsoniak hasierako mugimendua *******************
     irudiaMugitu(lehenengoPertsonaia.id, lehenengoPertsonaia.pos.x, lehenengoPertsonaia.pos.y);
     irudiaMugitu(bigarrenPertsonaia.id, bigarrenPertsonaia.pos.x, bigarrenPertsonaia.pos.y);
-
+    pantailaBerriztu();
     //******************* Jokoaren interakzioa hasten da ********************
 
     do {
         Sleep(denbora);
         pantailaGarbitu();
 
-        ebentu = ebentuaJasoGertatuBada();
-        if (ebentu == TECLA_RIGHT || ebentu == TECLA_d) mugitu = RIGHT;
-        else if (ebentu == TECLA_LEFT || ebentu == TECLA_a) mugitu = LEFT;
-        else if (ebentu == TECLA_UP || ebentu == TECLA_w) mugitu = UP;
+        ebentuL = ebentuaJasoGertatuBada();
+        if (ebentuL == TECLA_d) mugituL = RIGHTL;
+        else if (ebentuL == TECLA_a) mugituL = LEFTL;
+        else if (ebentuL == TECLA_w) mugituL = UPL;
 
-        if (mugitu == UP)
+        ebentuR = ebentuaJasoGertatuBada();
+        if (ebentuR == TECLA_RIGHT) mugituR = RIGHTR;
+        else if (ebentuR == TECLA_LEFT) mugituR = LEFTR;
+        else if (ebentuR == TECLA_UP) mugituR = UPR;
+
+        //********* Lehenengo pertsonaia ******
+        if (mugituL == UPL)
         {
 
             for (pixelUp = 0; pixelUp < pixelKopurua; pixelUp++)
@@ -60,13 +67,13 @@ EGOERA jokatu(void)
                 irudiakMarraztu();
                 pantailaBerriztu();
 
-                ebentu = ebentuaJasoGertatuBada();
-                if (ebentu == TECLA_LEFT || ebentu == TECLA_a)
+                ebentuL = ebentuaJasoGertatuBada();
+                if (ebentuL == TECLA_a)
                 {
                     aux = MUGIMENDUA_leftDownMugitu(lehenengoPertsonaia.pos);
                     lehenengoPertsonaia.pos.x = aux.x;
                 }
-                else if (ebentu == TECLA_RIGHT || ebentu == TECLA_d)
+                else if (ebentuL == TECLA_d)
                 {
                     aux = MUGIMENDUA_rightUpMugitu(lehenengoPertsonaia.pos);
                     lehenengoPertsonaia.pos.x = aux.x;
@@ -74,25 +81,25 @@ EGOERA jokatu(void)
             }
             for (pixelDown = 0; pixelDown < pixelKopurua; pixelDown++)
             {
-                //Sleep(1);
+                Sleep(1);
                 lehenengoPertsonaia.pos.y++;
                 irudiaMugitu(lehenengoPertsonaia.id, lehenengoPertsonaia.pos.x, lehenengoPertsonaia.pos.y);
                 irudiakMarraztu();
                 pantailaBerriztu();
-                ebentu = ebentuaJasoGertatuBada();
-                if (ebentu == TECLA_LEFT || ebentu == TECLA_a)
+                ebentuL = ebentuaJasoGertatuBada();
+                if (ebentuL == TECLA_a)
                 {
                     aux = MUGIMENDUA_leftDownMugitu(lehenengoPertsonaia.pos);
                     lehenengoPertsonaia.pos.x = aux.x;
                 }
-                else if (ebentu == TECLA_RIGHT || ebentu == TECLA_d)
+                else if (ebentuL == TECLA_d)
                 {
                     aux = MUGIMENDUA_rightUpMugitu(lehenengoPertsonaia.pos);
                     lehenengoPertsonaia.pos.x = aux.x;
                 }
             }
         }
-        if (mugitu == RIGHT)
+        if (mugituL == RIGHTL)
         {
             aux = MUGIMENDUA_rightUpMugitu(lehenengoPertsonaia.pos);
             lehenengoPertsonaia.pos.x = aux.x;
@@ -123,7 +130,7 @@ EGOERA jokatu(void)
             }
             if (kont == 2) kont = 0;
         }
-        if (mugitu == LEFT)
+        if (mugituL == LEFTL)
         {
             aux = MUGIMENDUA_leftDownMugitu(lehenengoPertsonaia.pos);
             lehenengoPertsonaia.pos.x = aux.x;
@@ -155,7 +162,7 @@ EGOERA jokatu(void)
             if (kont == 2) kont = 0;
 
         }
-        if (ebentu == TECLA_SPACE)
+        if (ebentuL == TECLA_SPACE)
         {
             lehenengoEszenatokia.id = IRUDIAK_irudiaGehitu(IRUDIA_ESZENA_BORROKA_1);
             lehenengoPertsonaia.id = IRUDIAK_irudiaGehitu(IRUDIA_PERTSONAIA_NAIRU_ATAQUE_3);
@@ -163,7 +170,123 @@ EGOERA jokatu(void)
             irudiakMarraztu();
             pantailaBerriztu();
         }
-        mugitu = STOP;
+        mugituL = STOP;
+
+        //********* Bigarren pertsonaia ******
+        if (mugituR == UPR)
+        {
+
+            for (pixelUp = 0; pixelUp < pixelKopurua; pixelUp++)
+            {
+                bigarrenPertsonaia.pos.y--;
+                irudiaMugitu(bigarrenPertsonaia.id, bigarrenPertsonaia.pos.x, bigarrenPertsonaia.pos.y);
+                irudiakMarraztu();
+                pantailaBerriztu();
+
+                ebentuR = ebentuaJasoGertatuBada();
+                if (ebentuR == TECLA_LEFT)
+                {
+                    aux = MUGIMENDUA_leftDownMugitu(bigarrenPertsonaia.pos);
+                    bigarrenPertsonaia.pos.x = aux.x;
+                }
+                else if (ebentuR == TECLA_RIGHT)
+                {
+                    aux = MUGIMENDUA_rightUpMugitu(bigarrenPertsonaia.pos);
+                    bigarrenPertsonaia.pos.x = aux.x;
+                }
+            }
+            for (pixelDown = 0; pixelDown < pixelKopurua; pixelDown++)
+            {
+                Sleep(1);
+                bigarrenPertsonaia.pos.y++;
+                irudiaMugitu(bigarrenPertsonaia.id, bigarrenPertsonaia.pos.x, bigarrenPertsonaia.pos.y);
+                irudiakMarraztu();
+                pantailaBerriztu();
+                ebentuR = ebentuaJasoGertatuBada();
+                if (ebentuR == TECLA_LEFT)
+                {
+                    aux = MUGIMENDUA_leftDownMugitu(bigarrenPertsonaia.pos);
+                    bigarrenPertsonaia.pos.x = aux.x;
+                }
+                else if (ebentuR == TECLA_RIGHT)
+                {
+                    aux = MUGIMENDUA_rightUpMugitu(bigarrenPertsonaia.pos);
+                    bigarrenPertsonaia.pos.x = aux.x;
+                }
+            }
+        }
+        if (mugituR == RIGHTR)
+        {
+            aux = MUGIMENDUA_rightUpMugitu(bigarrenPertsonaia.pos);
+            bigarrenPertsonaia.pos.x = aux.x;
+            kont++;
+            if (kont == 0)
+            {
+                lehenengoEszenatokia.id = IRUDIAK_irudiaGehitu(IRUDIA_ESZENA_BORROKA_1);
+                bigarrenPertsonaia.id = IRUDIAK_irudiaGehitu(IRUDIA_PERTSONAIA_NAIRU_CAMINAR_2);
+                irudiaMugitu(bigarrenPertsonaia.id, bigarrenPertsonaia.pos.x, bigarrenPertsonaia.pos.y);
+                irudiakMarraztu();
+                pantailaBerriztu();
+            }
+            else if (kont == 1)
+            {
+                lehenengoEszenatokia.id = IRUDIAK_irudiaGehitu(IRUDIA_ESZENA_BORROKA_1);
+                bigarrenPertsonaia.id = IRUDIAK_irudiaGehitu(IRUDIA_PERTSONAIA_NAIRU_CAMINAR_3);
+                irudiaMugitu(bigarrenPertsonaia.id, bigarrenPertsonaia.pos.x, bigarrenPertsonaia.pos.y);
+                irudiakMarraztu();
+                pantailaBerriztu();
+            }
+            else if (kont == 2)
+            {
+                lehenengoEszenatokia.id = IRUDIAK_irudiaGehitu(IRUDIA_ESZENA_BORROKA_1);
+                bigarrenPertsonaia.id = IRUDIAK_irudiaGehitu(IRUDIA_PERTSONAIA_NAIRU_CAMINAR_1);
+                irudiaMugitu(bigarrenPertsonaia.id, bigarrenPertsonaia.pos.x, bigarrenPertsonaia.pos.y);
+                irudiakMarraztu();
+                pantailaBerriztu();
+            }
+            if (kont == 2) kont = 0;
+        }
+        if (mugituR == LEFTR)
+        {
+            aux = MUGIMENDUA_leftDownMugitu(bigarrenPertsonaia.pos);
+            bigarrenPertsonaia.pos.x = aux.x;
+            kont++;
+            if (kont == 0)
+            {
+                lehenengoEszenatokia.id = IRUDIAK_irudiaGehitu(IRUDIA_ESZENA_BORROKA_1);
+                bigarrenPertsonaia.id = IRUDIAK_irudiaGehitu(IRUDIA_PERTSONAIA_NAIRU_CAMINAR_2);
+                irudiaMugitu(bigarrenPertsonaia.id, bigarrenPertsonaia.pos.x, bigarrenPertsonaia.pos.y);
+                irudiakMarraztu();
+                pantailaBerriztu();
+            }
+            else if (kont == 1)
+            {
+                lehenengoEszenatokia.id = IRUDIAK_irudiaGehitu(IRUDIA_ESZENA_BORROKA_1);
+                bigarrenPertsonaia.id = IRUDIAK_irudiaGehitu(IRUDIA_PERTSONAIA_NAIRU_CAMINAR_3);
+                irudiaMugitu(bigarrenPertsonaia.id, bigarrenPertsonaia.pos.x, bigarrenPertsonaia.pos.y);
+                irudiakMarraztu();
+                pantailaBerriztu();
+            }
+            else if (kont == 2)
+            {
+                lehenengoEszenatokia.id = IRUDIAK_irudiaGehitu(IRUDIA_ESZENA_BORROKA_1);
+                bigarrenPertsonaia.id = IRUDIAK_irudiaGehitu(IRUDIA_PERTSONAIA_NAIRU_CAMINAR_1);
+                irudiaMugitu(bigarrenPertsonaia.id, bigarrenPertsonaia.pos.x, bigarrenPertsonaia.pos.y);
+                irudiakMarraztu();
+                pantailaBerriztu();
+            }
+            if (kont == 2) kont = 0;
+
+        }
+        if (ebentuR == TECLA_p)
+        {
+            lehenengoEszenatokia.id = IRUDIAK_irudiaGehitu(IRUDIA_ESZENA_BORROKA_1);
+            bigarrenPertsonaia.id = IRUDIAK_irudiaGehitu(IRUDIA_PERTSONAIA_NAIRU_ATAQUE_3);
+            irudiaMugitu(bigarrenPertsonaia.id, bigarrenPertsonaia.pos.x, bigarrenPertsonaia.pos.y);
+            irudiakMarraztu();
+            pantailaBerriztu();
+        }
+        mugituR = STOP;
         egoera = JOKOA_egoera(lehenengoPertsonaia, bigarrenPertsonaia);
 
     } while (egoera == JOLASTEN);
@@ -177,11 +300,15 @@ EGOERA jokatu(void)
     return egoera;
 }
 
-EGOERA JOKOA_egoera(JOKO_ELEMENTUA nairu_caminar_1, JOKO_ELEMENTUA bigarrenPertsonaia)
+EGOERA JOKOA_egoera(JOKO_ELEMENTUA lehenengoPertsonaia, JOKO_ELEMENTUA bigarrenPertsonaia)
 {
     EGOERA ret = JOLASTEN;
 
-    if ((nairu_caminar_1.pos.x <= 40 || nairu_caminar_1.pos.x >= 1020) || (bigarrenPertsonaia.pos.x <= 40 || bigarrenPertsonaia.pos.x >= 1020))
+    if (lehenengoPertsonaia.pos.x <= 40 || lehenengoPertsonaia.pos.x >= 1020)
+    {
+        ret = GALDU;
+    }
+    else if (bigarrenPertsonaia.pos.x <= 40 || bigarrenPertsonaia.pos.x >= 1020)
     {
         ret = GALDU;
     }

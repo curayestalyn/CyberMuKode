@@ -2,7 +2,7 @@
 
 
 int main(int argc, char* str[]) {
-    int jarraitu = 1, menuAukera = 0, miniAukera, idAudioGame, id;
+    int jarraitu = 1, menuAukera = 0, miniAukera, idAudioGame, id, ebentu = 0, jokalaria;
     EGOERA egoera;
 
     if (sgHasieratu() == -1)
@@ -17,28 +17,15 @@ int main(int argc, char* str[]) {
         menuAukera = MENU_jokoaAurkeztu();
         if (menuAukera == 3)
         {
-            miniAukera = JOKO_miniJokoa();
+            miniAukera = MINIJOKOA_miniJokoa(&jokalaria);
+
             switch (miniAukera)
             {
             case BORROKA:
-                egoera = jokatu();
+                egoera = JOKOA_jokatu(jokalaria);
                 if (egoera != 5) jarraitu = AMAIERA_jokoAmaierakoa(egoera);
                 break;
-            case KREDITUAK:
-                printf("kredituak\n");
-
-                break;
-            case LAGUNTZA:
-                printf("Laguntza\n");
-                break;
-            case PERTSONAIAK:
-                printf("PERTSONAIAK\n");
-
-
-                break;
             case MENU:
-                menuAukera = MENU_jokoaAurkeztu();
-                printf("MENU\n");
                 break;
             case MINIGALDU:
                 idAudioGame = loadSound(JOKOA_SOUND_LOOSE);
