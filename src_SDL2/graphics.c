@@ -78,6 +78,23 @@ void zirkuluaMarraztu(int x, int y, int r)
   }
 }
 
+void karratuaMarraztu(int x, int y, int w, int h, int R, int G, int B, int A) {
+
+
+	SDL_Rect rect;
+	rect.x = x;
+	rect.y = y;
+	rect.w = w;
+	rect.h = h;
+
+	SDL_SetRenderDrawColor(gRenderer, R, G, B, A);
+	SDL_RenderDrawRect(gRenderer, &rect);
+	SDL_RenderFillRect(gRenderer, &rect);
+
+
+
+	SDL_RenderPresent(gRenderer);
+}
 
 
 int irudiaMarraztu(SDL_Texture* texture, SDL_Rect *pDest)
