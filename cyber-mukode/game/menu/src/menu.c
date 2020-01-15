@@ -39,14 +39,38 @@ void MENU_menuArgazkiak(int aukera)
 }
 
 
+/*void MENU_menuPuntuazioa()
+{
+    int ebentu = 0, x = 100;
+    char str[128];
+    strcpy_s(str, 128, "kaixo\n");
+    IRUDIA_argazkiaGehitu(IRUDIA_MENU_PUNTUAZIOABISTARATU, 0, 0);
+    //pantailaGarbitu();
+    for (int i = 1; i < 10; i++)
+    {
+        textuaIdatzi(x, 100, str);
+        x += 50;
+        
+    }
+    
+    pantailaBerriztu();
+    do
+    {
+        ebentu = ebentuaJasoGertatuBada();
+    } while (ebentu != TECLA_ESCAPE);
+}*/
 void MENU_menuPuntuazioa()
 {
     int ebentu = 0;
-    char str[128];
-    strcpy_s(str, 128, "kaixo");
-    IRUDIA_argazkiaGehitu(IRUDIA_ESZENA_PUNTUAZIOA, 0, 0);
-    //pantailaGarbitu();
-    textuaIdatzi(100, 100, str);
+    PUNTUAZIOA puntuazioa[MAX_PUNTUAK];
+    int puntuazioKop;
+    IRUDIA_argazkiaGehitu(IRUDIA_MENU_PUNTUAZIOABISTARATU, 0, 0);
+
+    puntuazioKop = PUNTUAZIOA_fitxategiaIrakurri(FITXEROAREN_IZENA, puntuazioa);
+    printf("%i", puntuazioKop);
+
+    PUNTUAZIOA_puntuazioakPantailaratu(puntuazioa, puntuazioKop);
+    //PUNTUAZIOA_fitxategiaIdatzi(FITXEROAREN_IZENA, puntuazioa);
     pantailaBerriztu();
     do
     {

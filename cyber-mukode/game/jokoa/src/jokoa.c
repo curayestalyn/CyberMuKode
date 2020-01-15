@@ -2,12 +2,14 @@
 
 EGOERA JOKOA_jokatu(int jokalaria)
 {
-    int denbora = 2, pixelKopurua =100, pixelUp, pixelDown, kont = 0, ebentuR = 0, ebentuL;
+    int denbora = 2, pixelKopurua = 100, pixelUp, pixelDown, kont = 0, ebentuR = 0, ebentuL;
     MUGIMENDUA mugituR = STOP;
     MUGIMENDUA mugituL = STOP;
     EGOERA  egoera = JOLASTEN;
     JOKO_ELEMENTUA lehenengoPertsonaia, bigarrenPertsonaia, lehenengoEszenatokia;
     POSIZIOA aux;
+    PUNTUAZIOA puntuazioa;
+    puntuazioa.id = 0;
 
     //egoera = JOLASTEN;
 

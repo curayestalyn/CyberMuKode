@@ -2,8 +2,9 @@
 
 
 int main(int argc, char* str[]) {
-    int jarraitu = 1, menuAukera = 0, miniAukera, idAudioGame, id, ebentu = 0, jokalaria;
+    int jarraitu = 1, menuAukera = 0, miniAukera, idAudioGame, id, ebentu = 0, pertsonaia;
     EGOERA egoera;
+    char jokalariIzena[128];
 
     if (sgHasieratu() == -1)
     {
@@ -13,19 +14,18 @@ int main(int argc, char* str[]) {
     textuaGaitu();
     do
     {
-
         menuAukera = MENU_jokoaAurkeztu();
-        if (menuAukera == 3)
+        switch (menuAukera)
         {
-            miniAukera = MINIJOKOA_miniJokoa(&jokalaria);
-
+        case 3:
+            IRUDIA_argazkiaGehitu(IRUDIA_MENU_IDATZIIZENA, 0, 0);
+            eskatuIzena(jokalariIzena);
+            miniAukera = MINIJOKOA_miniJokoa(&pertsonaia);
             switch (miniAukera)
             {
             case BORROKA:
-                egoera = JOKOA_jokatu(jokalaria);
+                egoera = JOKOA_jokatu(pertsonaia);
                 if (egoera != 5) jarraitu = AMAIERA_jokoAmaierakoa(egoera);
-                break;
-            case MENU:
                 break;
             case MINIGALDU:
                 idAudioGame = loadSound(JOKOA_SOUND_LOOSE);
@@ -33,12 +33,26 @@ int main(int argc, char* str[]) {
                 id = BUKAERA_irudiaBistaratu();
                 jarraitu = AMAIERA_jokoAmaierakoa(GALDU);
                 break;
-            }
+            case MENU:
+                break;
+            }      
+            break;
+        case 2:
+            MENU_menuPuntuazioa();
+        default:
+            jarraitu = 0;
+            break;
         }
-        else if (menuAukera == 2)  MENU_menuPuntuazioa();
-        else if (menuAukera == 1) jarraitu = 0;
+       
+
     } while (jarraitu);
     sgItxi();
     return 0;
 }
+
+
+
+
+
+
 

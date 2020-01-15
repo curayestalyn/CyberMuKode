@@ -9,7 +9,8 @@
 #define IRUDIA_MENU_ITXIJOKOA ".\\img\\menu\\itxi-jokoa.bmp"
 #define IRUDIA_MENU_PAUSAJARRAITU ".\\img\\menu\\pausa-jarraitu.bmp"
 #define IRUDIA_MENU_PAUSAMENU ".\\img\\menu\\pausa-menu.bmp"
-#define IRUDIA_MENU_IDATZIIZENA ".\\img\\menu\\idatzi-izena-2.bmp"
+#define IRUDIA_MENU_IDATZIIZENA ".\\img\\menu\\idatzi-izena-1.bmp"
+#define IRUDIA_MENU_PUNTUAZIOABISTARATU ".\\img\\menu\\puntuazioa-bistaratu.bmp"
 //************* Irudiak minijokoa ****************
 #define IRUDIA_MAPA_1 ".\\img\\menu\\minijokoa\\mapa-1.bmp"
 #define IRUDIA_MAPA_2 ".\\img\\menu\\minijokoa\\mapa-2.bmp"
@@ -34,7 +35,6 @@
 
 //****************** Irudiak background ****************
 #define IRUDIA_ESZENA_BORROKA_1 ".\\img\\background\\borroka-1.bmp"
-#define IRUDIA_ESZENA_PUNTUAZIOA ".\\img\\background\\puntuazioa.bmp"
 #define IRUDIA_ESZENA_GAMEOVER ".\\img\\background\\gameover.bmp"
 #define BUKAERA_IMAGE ".\\img\\background\\gameover.bmp"
 

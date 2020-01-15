@@ -19,6 +19,7 @@
 #include "minijokoa.h"
 #include "puntuazioa.h"
 #include "jokoa.h"
+#include <stdlib.h>
 
 typedef enum EGOERA { JOLASTEN, GALDU, IRABAZI } EGOERA;
 typedef enum MOTA { IRUDIA, MARGOA, TESTUA } MOTA;

@@ -1,4 +1,4 @@
-1	estalyn	1000
-2	ainhoa	3000
-3	aitor	4000
-4	andoni	5000
+1	Andoni	100
+2	Estalyn	100
+3	Ainhoa	300
+4	Aitor	400

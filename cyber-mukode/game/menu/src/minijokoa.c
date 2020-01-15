@@ -215,9 +215,10 @@ int MINIJOKOA_miniJokoa(int* jokalaria)
             aukeratuJokalaria = MINIJOKOA_pertsonaienAukerak(IRUDIA_MAPA_2, IRUDIA_MINIJOKOA_MINIDOWN_1, IRUDIA_MINIJOKOA_PERTSONAIA_NAIRU, &background.id, &pertsonaia.id, &pertsonaia.pos.x, &pertsonaia.pos.y);
             (*jokalaria) = aukeratuJokalaria;
             aukera = -1;
-        }        
+        }
+        printf("x:%d, y:%d", pertsonaia.pos.x, pertsonaia.pos.y);
         mugitu = STOP;
-    } while (aukera != MINIGALDU && aukera != BORROKA);
+    } while (aukera != MINIGALDU && aukera != BORROKA && aukera != MENU);
 
     return aukera;
 }
