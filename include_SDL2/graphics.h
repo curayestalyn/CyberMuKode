@@ -11,6 +11,7 @@ void arkatzKoloreaEzarri(int red, int green, int blue);
 void puntuaMarraztu(int x, int y);
 void zuzenaMarraztu(int x1, int y1, int x2, int y2);
 void zirkuluaMarraztu(int x, int y, int r);
+void karratuaMarraztu(int x, int y, int w, int h, int R, int G, int B, int A);
 void pantailaGarbitu();
 void pantailaBerriztu();
 

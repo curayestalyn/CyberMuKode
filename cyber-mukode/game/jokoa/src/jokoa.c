@@ -2,7 +2,11 @@
 
 EGOERA JOKOA_jokatu(int jokalaria)
 {
+<<<<<<< .mine
     int denbora = 2, pixelKopurua = 100, pixelUp, pixelDown, kont = 0, ebentuR = 0, ebentuL;
+=======
+    int denbora = 2, pixelKopurua =100, pixelUp, pixelDown, kont = 0, ebentuR = 0, ebentuL, P1life=360, P2life=360;
+>>>>>>> .theirs
     MUGIMENDUA mugituR = STOP;
     MUGIMENDUA mugituL = STOP;
     EGOERA  egoera = JOLASTEN;
@@ -36,7 +40,7 @@ EGOERA JOKOA_jokatu(int jokalaria)
     //************ Pertsonaien irudiak kargatu eta identifikatzaile bat eman ********************
     lehenengoPertsonaia.id = IRUDIAK_irudiaGehitu(IRUDIA_PERTSONAIA_NAIRU_CAMINAR_1);
     bigarrenPertsonaia.id = IRUDIAK_irudiaGehitu(IRUDIA_PERTSONAIA_IBAY_CAMINAR_1);
-
+	bizitzaBarrak(P1life, P2life);
 
     //*********** Pertsoniak hasierako mugimendua *******************
     irudiaMugitu(lehenengoPertsonaia.id, lehenengoPertsonaia.pos.x, lehenengoPertsonaia.pos.y);
@@ -302,6 +306,8 @@ EGOERA JOKOA_jokatu(int jokalaria)
     return egoera;
 }
 
+
+
 EGOERA JOKOA_egoera(JOKO_ELEMENTUA lehenengoPertsonaia, JOKO_ELEMENTUA bigarrenPertsonaia)
 {
     EGOERA ret = JOLASTEN;
@@ -318,9 +324,11 @@ EGOERA JOKOA_egoera(JOKO_ELEMENTUA lehenengoPertsonaia, JOKO_ELEMENTUA bigarrenP
     return ret;
 }
 
-
-
-
+void bizitzaBarrak(int P1life, int P2life) {
+	karratuaMarraztu(155, 30, P1life, 55, 0, 255, 255, 150);
+	karratuaMarraztu(750, 30, P2life, 55, 0, 255, 255, 150);
+	pantailaBerriztu();
+}
 
 
 int  AMAIERA_jokoAmaierakoa(EGOERA egoera)

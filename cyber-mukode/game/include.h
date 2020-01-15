@@ -38,5 +38,6 @@ EGOERA JOKOA_egoera(JOKO_ELEMENTUA lehenengoPertsonaia, JOKO_ELEMENTUA bigarrenP
 int  AMAIERA_jokoAmaierakoa(EGOERA egoera);
 POSIZIOA MUGIMENDUA_rightUpMugitu(POSIZIOA posizioa);
 POSIZIOA MUGIMENDUA_leftDownMugitu(POSIZIOA posizioa);
+void bizitzaBarrak(int P1life, int P2life);
 
 #endif // !INCLUDE_H
