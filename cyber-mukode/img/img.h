@@ -9,7 +9,7 @@
 #define IRUDIA_MENU_ITXIJOKOA ".\\img\\menu\\itxi-jokoa.bmp"
 #define IRUDIA_MENU_PAUSAJARRAITU ".\\img\\menu\\pausa-jarraitu.bmp"
 #define IRUDIA_MENU_PAUSAMENU ".\\img\\menu\\pausa-menu.bmp"
-#define IRUDIA_MENU_IDATZIIZENA ".\\img\\menu\\idatzi-izena-1.bmp"
+#define IRUDIA_MENU_IDATZIIZENA ".\\img\\menu\\idatzi-izena.bmp"
 #define IRUDIA_MENU_PUNTUAZIOABISTARATU ".\\img\\menu\\puntuazioa-bistaratu.bmp"
 //************* Irudiak minijokoa ****************
 #define IRUDIA_MAPA_1 ".\\img\\menu\\minijokoa\\mapa-1.bmp"
@@ -37,6 +37,7 @@
 #define IRUDIA_ESZENA_BORROKA_1 ".\\img\\background\\borroka-1.bmp"
 #define IRUDIA_ESZENA_GAMEOVER ".\\img\\background\\gameover.bmp"
 #define BUKAERA_IMAGE ".\\img\\background\\gameover.bmp"
+#define IRUDIA_TENPORIZADOREA ".\\img\\background\\tenporizadorea.bmp"
 
 //**************** Irudiak pertsonaiak ****************
 //FAY
@@ -93,5 +94,27 @@
 #define IRUDIA_PERTSONAIA_TRYDAN_SALTO_1L ".\\img\\pertsonaiak\\trydan\\thaliel-salto-1L.bmp"
 #define IRUDIA_PERTSONAIA_TRYDAN_SALTO_1R ".\\img\\pertsonaiak\\trydan\\thaliel-salto-1R.bmp"
 
-
+//ELEMENTUAK
+#define IRUDIA_ELEMENTUA_BITZITZA1 ".\\img\\elementuak\\bizitza-1.bmp"
+#define IRUDIA_ELEMENTUA_BIZITZA2L ".\\img\\elementuak\\bizitza-2-eskuma.bmp"
+#define IRUDIA_ELEMENTUA_BIZITZA3L ".\\img\\elementuak\\bizitza-3-eskuma.bmp"
+#define IRUDIA_ELEMENTUA_BIZITZA4L ".\\img\\elementuak\\bizitza-4-eskuma.bmp"
+#define IRUDIA_ELEMENTUA_BIZITZA5L ".\\img\\elementuak\\bizitza-5-eskuma.bmp"
+#define IRUDIA_ELEMENTUA_BIZITZA6L ".\\img\\elementuak\\bizitza-6-eskuma.bmp"
+#define IRUDIA_ELEMENTUA_BIZITZA7 ".\\img\\elementuak\\bizitza-7.bmp"
+#define IRUDIA_ELEMENTUA_BIZITZA2R ".\\img\\elementuak\\bizitza-2-ezkerra.bmp"
+#define IRUDIA_ELEMENTUA_BIZITZA3R ".\\img\\elementuak\\bizitza-3-ezkerra.bmp"
+#define IRUDIA_ELEMENTUA_BIZITZA4R ".\\img\\elementuak\\bizitza-4-ezkerra.bmp"
+#define IRUDIA_ELEMENTUA_BIZITZA5R ".\\img\\elementuak\\bizitza-5-ezkerra.bmp"
+#define IRUDIA_ELEMENTUA_BIZITZA6R ".\\img\\elementuak\\bizitza-6-ezkerra.bmp"
+#define IRUDIA_PROFILA_FAY_1R  ".\\img\\elementuak\\fay-eskuma.bmp"
+#define IRUDIA_PROFILA_FAY_1L  ".\\img\\elementuak\\fay-ezkerra.bmp"
+#define IRUDIA_PROFILA_IBAY_1R  ".\\img\\elementuak\\ibay-eskuma.bmp"
+#define IRUDIA_PROFILA_IBAY_1L  ".\\img\\elementuak\\ibay-ezkerra.bmp"
+#define IRUDIA_PROFILA_NAIRU_1R  ".\\img\\elementuak\\nairu-eskuma.bmp"
+#define IRUDIA_PROFILA_NAIRU_1L  ".\\img\\elementuak\\nairu-ezkerra.bmp"
+#define IRUDIA_PROFILA_THALIEL_1R  ".\\img\\elementuak\\thaliel-eskuma.bmp"
+#define IRUDIA_PROFILA_THALIEL_1L  ".\\img\\elementuak\\thaliel-ezkerra.bmp"
+#define IRUDIA_PROFILA_TRYDAN_1R  ".\\img\\elementuak\\trydan-eskuma.bmp"
+#define IRUDIA_PROFILA_TRYDAN_1L  ".\\img\\elementuak\\trydan-ezkerra.bmp"
 #endif // !IMG_H

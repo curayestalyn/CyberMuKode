@@ -1,4 +1,4 @@
-1	Andoni	100
-2	Estalyn	100
-3	Ainhoa	300
-4	Aitor	400
+0	estalyn	0
+1	d	0
+0	estalyn	3072
+1	unai	1024

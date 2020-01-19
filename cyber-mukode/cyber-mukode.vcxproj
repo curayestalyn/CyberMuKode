@@ -147,7 +147,8 @@
     <ClCompile Include="..\src_SDL2\imagen.c" />
     <ClCompile Include="..\src_SDL2\soinua.c" />
     <ClCompile Include="..\src_SDL2\text.c" />
-    <ClCompile Include="game\jokoa\src\funjokoa.c" />
+    <ClCompile Include="game\jokoa\src\jokalariabat.c" />
+    <ClCompile Include="game\jokoa\src\jokalariabi.c" />
     <ClCompile Include="game\jokoa\src\jokoa.c" />
     <ClCompile Include="game\menu\src\menu.c" />
     <ClCompile Include="game\menu\src\minijokoa.c" />

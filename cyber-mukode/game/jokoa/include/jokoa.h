@@ -2,8 +2,11 @@
 #define JOKOA_H
 #include "include.h"
 
+// Irudiak jokoan gehitzeko
 int IRUDIAK_irudiaGehitu(char* irudiaIzena);
-int BUKAERA_irudiaBistaratu();
-void IRUDIA_argazkiaGehitu(char* irudiaIzena, int posX, int posY);
+int IRUDIA_argazkiaGehitu(char* irudiaIzena, int posX, int posY);
+// Denbora kudeatzeko
+int JOKOA_denboraKudeatuEtaBistaratu(int* tenporizadorea);
+
 
 #endif // !JOKOA_H

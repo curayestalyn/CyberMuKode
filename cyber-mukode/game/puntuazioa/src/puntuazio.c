@@ -1,6 +1,10 @@
 #include "include.h"
 
-
+void PUNTUAZIOA_jokalariInformazioaInializatu(PUNTUAZIOA puntuazioa, char * izena)
+{
+	puntuazioa.id = 0;
+	strcpy(puntuazioa.izena, izena);
+}
 
 
 
@@ -17,9 +21,8 @@ int PUNTUAZIOA_fitxategiaIrakurri(char fileName[], PUNTUAZIOA puntuazioa[])
 			karakterea = fscanf(fitxategia, "%i\t%s\t%i", &puntuazioa[posizioa].id, puntuazioa[posizioa].izena, &puntuazioa[posizioa].puntuzioa);
 			if (karakterea > EOF) posizioa++;
 		} while (karakterea > EOF&& posizioa < MAX_PUNTUAK);
+		fclose(fitxategia);
 	}
-	//fclose(fitxategia);
-
 	return posizioa;
 }
 
@@ -27,7 +30,7 @@ void PUNTUAZIOA_fitxategiaIdatzi(char fileName[], PUNTUAZIOA puntuazioa[])
 {
 
 	FILE* fitxategia;
-	fitxategia = fopen(fileName, "wt");
+	fitxategia = fopen(fileName, "a");
 	int karakterea = 0, posizioa = 0;
 	if (fitxategia == NULL) printf("ERROR!!! Fitxategia ezin da zabaldu\n");
 	else
@@ -36,9 +39,9 @@ void PUNTUAZIOA_fitxategiaIdatzi(char fileName[], PUNTUAZIOA puntuazioa[])
 		{
 			fprintf(fitxategia, "%i\t%s\t%i\n", puntuazioa[posizioa].id, puntuazioa[posizioa].izena, puntuazioa[posizioa].puntuzioa);
 			posizioa++;
-		} while (posizioa < MAX_PUNTUAK);
+		} while (posizioa < MAX_JOKALARIAK);
+		fclose(fitxategia);
 	}
-	//fclose(fitxategia);
 }
 
 void PUNTUAZIOA_puntuazioaPantailaratu(PUNTUAZIOA puntuazioa, int idX, int idY, int izenaX, int izenaY, int puntuazioaX, int puntuazioaY)
@@ -50,8 +53,6 @@ void PUNTUAZIOA_puntuazioaPantailaratu(PUNTUAZIOA puntuazioa, int idX, int idY, 
 	textuaIdatzi(izenaX, izenaY, puntuazioa.izena);
 	sprintf(puntuazioak, "%d", puntuazioa.puntuzioa);
 	textuaIdatzi(puntuazioaX, puntuazioaY, puntuazioak);
-
-
 }
 
 void PUNTUAZIOA_puntuazioakPantailaratu(PUNTUAZIOA puntuazioa[], int puntuazioaKop)

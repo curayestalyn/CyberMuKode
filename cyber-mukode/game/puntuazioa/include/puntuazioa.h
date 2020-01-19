@@ -11,6 +11,7 @@ typedef struct PUNTUAZIOA
 
 #define FITXEROAREN_IZENA ".\\game\\puntuazioa\\data\\puntuazioa.txt"
 #define MAX_PUNTUAK 10
+#define MAX_JOKALARIAK 2
 
 int PUNTUAZIOA_fitxategiaIrakurri(char fileName[], PUNTUAZIOA puntuazioa[]);
 //void PUNTUAZIOA_puntuazioaPantailaratu(PUNTUAZIOA puntuazioa);

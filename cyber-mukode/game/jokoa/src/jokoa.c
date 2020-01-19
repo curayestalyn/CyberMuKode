@@ -1,33 +1,42 @@
 #include "include.h"
+/*
+    Jokalaria 1 = Jok1
+    Jokalaria 2 = Jok2
 
-EGOERA JOKOA_jokatu(int jokalaria)
+*/
+
+
+EGOERA JOKOA_jokatu(int jokalaria_Jok1, int jokalaria_Jok2, int* puntuazioa_Jok1, int* puntuazioa_Jok2)
 {
-<<<<<<< .mine
-    int denbora = 2, pixelKopurua = 100, pixelUp, pixelDown, kont = 0, ebentuR = 0, ebentuL;
-=======
-    int denbora = 2, pixelKopurua =100, pixelUp, pixelDown, kont = 0, ebentuR = 0, ebentuL, P1life=360, P2life=360;
->>>>>>> .theirs
-    MUGIMENDUA mugituR = STOP;
-    MUGIMENDUA mugituL = STOP;
+    int sleepDenbora = 2, tenporizadorea = 2150, tenporizadoreEgoera ,kontBizitzaBarra_Jok1 = 6, kontBizitzaBarra_Jok2 = 6, kontPuntuazioa_Jok1 = 0, kontPuntuazioa_Jok2 = 0;
+    SDL_Event event;
     EGOERA  egoera = JOLASTEN;
-    JOKO_ELEMENTUA lehenengoPertsonaia, bigarrenPertsonaia, lehenengoEszenatokia;
-    POSIZIOA aux;
-    PUNTUAZIOA puntuazioa;
-    puntuazioa.id = 0;
+    JOKO_ELEMENTUA pertsonaia_Jok1, pertsonaia_Jok2, eszenatokia, bizitzaBarra_Jok1, bizitzaBarra_Jok2, profila_Jok1, profila_Jok2;
 
     //egoera = JOLASTEN;
 
     //************* Eszena tokiaren hasierako posizioa **********************
 
-    lehenengoEszenatokia.pos.x = 0;
-    lehenengoEszenatokia.pos.y = 0;
+    eszenatokia.pos.x = 0;
+    eszenatokia.pos.y = 0;
 
     //************* Pertsonaien hasierako posizioa ****************
 
-    lehenengoPertsonaia.pos.x = 100;
-    lehenengoPertsonaia.pos.y = 217;
-    bigarrenPertsonaia.pos.x = 800;
-    bigarrenPertsonaia.pos.y = 217;
+    pertsonaia_Jok1.pos.x = 100;
+    pertsonaia_Jok1.pos.y = 217;
+    pertsonaia_Jok2.pos.x = 800;
+    pertsonaia_Jok2.pos.y = 217;
+
+    //************* Bizitza barrak hasierako posizioa ****************
+    bizitzaBarra_Jok1.pos.x = 157;
+    bizitzaBarra_Jok1.pos.y = 32;
+    bizitzaBarra_Jok2.pos.x = 753;
+    bizitzaBarra_Jok2.pos.y = 32;
+    //********* Jokalari bakoitzaren profila jarri ********
+    profila_Jok1.pos.x = 25;
+    profila_Jok1.pos.y = 15;
+    profila_Jok2.pos.x = 1125;
+    profila_Jok2.pos.y = 15;
     //************ Soinua *******************
 
     audioInit();
@@ -35,267 +44,87 @@ EGOERA JOKOA_jokatu(int jokalaria)
     playMusic();
 
     //************ Eszenaren irudiak kargatu eta identifikatzaile bat eman ********************
-    lehenengoEszenatokia.id = IRUDIAK_irudiaGehitu(IRUDIA_ESZENA_BORROKA_1);
+    eszenatokia.id = IRUDIAK_irudiaGehitu(IRUDIA_ESZENA_BORROKA_1);
 
     //************ Pertsonaien irudiak kargatu eta identifikatzaile bat eman ********************
-    lehenengoPertsonaia.id = IRUDIAK_irudiaGehitu(IRUDIA_PERTSONAIA_NAIRU_CAMINAR_1);
-    bigarrenPertsonaia.id = IRUDIAK_irudiaGehitu(IRUDIA_PERTSONAIA_IBAY_CAMINAR_1);
-	bizitzaBarrak(P1life, P2life);
-
+    pertsonaia_Jok1.id = IRUDIAK_irudiaGehitu(IRUDIA_PERTSONAIA_NAIRU_CAMINAR_1);
+    pertsonaia_Jok2.id = IRUDIAK_irudiaGehitu(IRUDIA_PERTSONAIA_IBAY_CAMINAR_1);
+    //************ Elementuen irudiak kargatu eta identifikatzaile bat eman ********************
+    bizitzaBarra_Jok2.id =IRUDIAK_irudiaGehitu(IRUDIA_ELEMENTUA_BITZITZA1);
+    bizitzaBarra_Jok1.id = IRUDIAK_irudiaGehitu(IRUDIA_ELEMENTUA_BITZITZA1);
+    //********** Profilak **********
+    profila_Jok1.id = IRUDIAK_irudiaGehitu(IRUDIA_PROFILA_NAIRU_1L);
+    profila_Jok2.id = IRUDIAK_irudiaGehitu(IRUDIA_PROFILA_IBAY_1R);
     //*********** Pertsoniak hasierako mugimendua *******************
-    irudiaMugitu(lehenengoPertsonaia.id, lehenengoPertsonaia.pos.x, lehenengoPertsonaia.pos.y);
-    irudiaMugitu(bigarrenPertsonaia.id, bigarrenPertsonaia.pos.x, bigarrenPertsonaia.pos.y);
+    irudiaMugitu(pertsonaia_Jok1.id, pertsonaia_Jok1.pos.x, pertsonaia_Jok1.pos.y);
+    irudiaMugitu(pertsonaia_Jok2.id, pertsonaia_Jok2.pos.x, pertsonaia_Jok2.pos.y);
+    //*********** Elementuaren hasierako mugimendua *******************
+    irudiaMugitu(bizitzaBarra_Jok2.id, bizitzaBarra_Jok2.pos.x, bizitzaBarra_Jok2.pos.y);
+    irudiaMugitu(bizitzaBarra_Jok1.id, bizitzaBarra_Jok1.pos.x, bizitzaBarra_Jok1.pos.y);
+    //********** Profilaren hasierkao mugimendua ****************
+    irudiaMugitu(profila_Jok1.id, profila_Jok1.pos.x, profila_Jok1.pos.y);
+    irudiaMugitu(profila_Jok2.id, profila_Jok2.pos.x, profila_Jok2.pos.y);
+    irudiakMarraztu();
     pantailaBerriztu();
+    IRUDIA_argazkiaGehitu(IRUDIA_TENPORIZADOREA, 0, 0);
     //******************* Jokoaren interakzioa hasten da ********************
-
     do {
-        Sleep(denbora);
+        Sleep(sleepDenbora);
         pantailaGarbitu();
 
-        ebentuL = ebentuaJasoGertatuBada();
-        if (ebentuL == TECLA_d) mugituL = RIGHTL;
-        else if (ebentuL == TECLA_a) mugituL = LEFTL;
-        else if (ebentuL == TECLA_w) mugituL = UPL;
-
-        ebentuR = ebentuaJasoGertatuBada();
-        if (ebentuR == TECLA_RIGHT) mugituR = RIGHTR;
-        else if (ebentuR == TECLA_LEFT) mugituR = LEFTR;
-        else if (ebentuR == TECLA_UP) mugituR = UPR;
-
-        //********* Lehenengo pertsonaia ******
-        if (mugituL == UPL)
+        //********** while buklea teklako ebektoak gestionatzen du *************
+        while (SDL_PollEvent(&event))
         {
-
-            for (pixelUp = 0; pixelUp < pixelKopurua; pixelUp++)
+            switch (event.type)
             {
-                lehenengoPertsonaia.pos.y--;
-                irudiaMugitu(lehenengoPertsonaia.id, lehenengoPertsonaia.pos.x, lehenengoPertsonaia.pos.y);
-                irudiakMarraztu();
-                pantailaBerriztu();
+            case SDL_QUIT: egoera = GALDU; break;
+            }
+            pertsonaia_Jok1 = JOKOA_lehenegoJokalaria(pertsonaia_Jok1, event);
+            pertsonaia_Jok2 = JOKOA_bigarrenJokalaria(pertsonaia_Jok2, event);
+       }
 
-                ebentuL = ebentuaJasoGertatuBada();
-                if (ebentuL == TECLA_a)
-                {
-                    aux = MUGIMENDUA_leftDownMugitu(lehenengoPertsonaia.pos);
-                    lehenengoPertsonaia.pos.x = aux.x;
-                }
-                else if (ebentuL == TECLA_d)
-                {
-                    aux = MUGIMENDUA_rightUpMugitu(lehenengoPertsonaia.pos);
-                    lehenengoPertsonaia.pos.x = aux.x;
-                }
-            }
-            for (pixelDown = 0; pixelDown < pixelKopurua; pixelDown++)
-            {
-                Sleep(1);
-                lehenengoPertsonaia.pos.y++;
-                irudiaMugitu(lehenengoPertsonaia.id, lehenengoPertsonaia.pos.x, lehenengoPertsonaia.pos.y);
-                irudiakMarraztu();
-                pantailaBerriztu();
-                ebentuL = ebentuaJasoGertatuBada();
-                if (ebentuL == TECLA_a)
-                {
-                    aux = MUGIMENDUA_leftDownMugitu(lehenengoPertsonaia.pos);
-                    lehenengoPertsonaia.pos.x = aux.x;
-                }
-                else if (ebentuL == TECLA_d)
-                {
-                    aux = MUGIMENDUA_rightUpMugitu(lehenengoPertsonaia.pos);
-                    lehenengoPertsonaia.pos.x = aux.x;
-                }
-            }
-        }
-        if (mugituL == RIGHTL)
+        //Bizitza barra jokalaria 2 - jokalaria 1 atakatzen denean
+        if (pertsonaia_Jok1.pos.x > pertsonaia_Jok2.pos.x - 140 && pertsonaia_Jok1.pos.x < pertsonaia_Jok2.pos.x + 140 && event.key.keysym.sym == TECLA_SPACE)
         {
-            aux = MUGIMENDUA_rightUpMugitu(lehenengoPertsonaia.pos);
-            lehenengoPertsonaia.pos.x = aux.x;
-            kont++;
-            if (kont == 0)
+            kontPuntuazioa_Jok1 += 512;
+            switch (kontBizitzaBarra_Jok2)
             {
-                lehenengoEszenatokia.id = IRUDIAK_irudiaGehitu(IRUDIA_ESZENA_BORROKA_1);
-                lehenengoPertsonaia.id = IRUDIAK_irudiaGehitu(IRUDIA_PERTSONAIA_NAIRU_CAMINAR_2);
-                irudiaMugitu(lehenengoPertsonaia.id, lehenengoPertsonaia.pos.x, lehenengoPertsonaia.pos.y);
-                irudiakMarraztu();
-                pantailaBerriztu();
+                case 6: bizitzaBarra_Jok2 = JOKOA_bizitzaBarra(bizitzaBarra_Jok2, IRUDIA_ELEMENTUA_BIZITZA2R); break;
+                case 5: bizitzaBarra_Jok2 = JOKOA_bizitzaBarra(bizitzaBarra_Jok2, IRUDIA_ELEMENTUA_BIZITZA3R); break;
+                case 4:bizitzaBarra_Jok2 = JOKOA_bizitzaBarra(bizitzaBarra_Jok2, IRUDIA_ELEMENTUA_BIZITZA4R); break;
+                case 3:bizitzaBarra_Jok2 = JOKOA_bizitzaBarra(bizitzaBarra_Jok2, IRUDIA_ELEMENTUA_BIZITZA5R); break;
+                case 2:bizitzaBarra_Jok2 = JOKOA_bizitzaBarra(bizitzaBarra_Jok2, IRUDIA_ELEMENTUA_BIZITZA6R); break;
+                case 1:bizitzaBarra_Jok2 = JOKOA_bizitzaBarra(bizitzaBarra_Jok2, IRUDIA_ELEMENTUA_BIZITZA7); break;
             }
-            else if (kont == 1)
-            {
-                lehenengoEszenatokia.id = IRUDIAK_irudiaGehitu(IRUDIA_ESZENA_BORROKA_1);
-                lehenengoPertsonaia.id = IRUDIAK_irudiaGehitu(IRUDIA_PERTSONAIA_NAIRU_CAMINAR_3);
-                irudiaMugitu(lehenengoPertsonaia.id, lehenengoPertsonaia.pos.x, lehenengoPertsonaia.pos.y);
-                irudiakMarraztu();
-                pantailaBerriztu();
-            }
-            else if (kont == 2)
-            {
-                lehenengoEszenatokia.id = IRUDIAK_irudiaGehitu(IRUDIA_ESZENA_BORROKA_1);
-                lehenengoPertsonaia.id = IRUDIAK_irudiaGehitu(IRUDIA_PERTSONAIA_NAIRU_CAMINAR_1);
-                irudiaMugitu(lehenengoPertsonaia.id, lehenengoPertsonaia.pos.x, lehenengoPertsonaia.pos.y);
-                irudiakMarraztu();
-                pantailaBerriztu();
-            }
-            if (kont == 2) kont = 0;
+            event.key.keysym.sym = TECLA_0;
+            kontBizitzaBarra_Jok2--;
         }
-        if (mugituL == LEFTL)
+        //Bizitza barra jokalaria 1 - 2 jokalaria atakatzen denean
+        if (pertsonaia_Jok2.pos.x > pertsonaia_Jok1.pos.x - 140 && pertsonaia_Jok2.pos.x < pertsonaia_Jok1.pos.x + 140 && event.key.keysym.sym == TECLA_5)
         {
-            aux = MUGIMENDUA_leftDownMugitu(lehenengoPertsonaia.pos);
-            lehenengoPertsonaia.pos.x = aux.x;
-            kont++;
-            if (kont == 0)
+            kontPuntuazioa_Jok2 += 512;
+            switch (kontBizitzaBarra_Jok1)
             {
-                lehenengoEszenatokia.id = IRUDIAK_irudiaGehitu(IRUDIA_ESZENA_BORROKA_1);
-                lehenengoPertsonaia.id = IRUDIAK_irudiaGehitu(IRUDIA_PERTSONAIA_NAIRU_CAMINAR_2);
-                irudiaMugitu(lehenengoPertsonaia.id, lehenengoPertsonaia.pos.x, lehenengoPertsonaia.pos.y);
-                irudiakMarraztu();
-                pantailaBerriztu();
+                case 6: bizitzaBarra_Jok1 = JOKOA_bizitzaBarra(bizitzaBarra_Jok1, IRUDIA_ELEMENTUA_BIZITZA2L); break;
+                case 5: bizitzaBarra_Jok1 = JOKOA_bizitzaBarra(bizitzaBarra_Jok1, IRUDIA_ELEMENTUA_BIZITZA3L); break;
+                case 4:bizitzaBarra_Jok1 = JOKOA_bizitzaBarra(bizitzaBarra_Jok1, IRUDIA_ELEMENTUA_BIZITZA4L); break;
+                case 3:bizitzaBarra_Jok1 = JOKOA_bizitzaBarra(bizitzaBarra_Jok1, IRUDIA_ELEMENTUA_BIZITZA5L); break;
+                case 2:bizitzaBarra_Jok1 = JOKOA_bizitzaBarra(bizitzaBarra_Jok1, IRUDIA_ELEMENTUA_BIZITZA6L); break;
+                case 1:bizitzaBarra_Jok1 = JOKOA_bizitzaBarra(bizitzaBarra_Jok1, IRUDIA_ELEMENTUA_BIZITZA7); break;
             }
-            else if (kont == 1)
-            {
-                lehenengoEszenatokia.id = IRUDIAK_irudiaGehitu(IRUDIA_ESZENA_BORROKA_1);
-                lehenengoPertsonaia.id = IRUDIAK_irudiaGehitu(IRUDIA_PERTSONAIA_NAIRU_CAMINAR_3);
-                irudiaMugitu(lehenengoPertsonaia.id, lehenengoPertsonaia.pos.x, lehenengoPertsonaia.pos.y);
-                irudiakMarraztu();
-                pantailaBerriztu();
-            }
-            else if (kont == 2)
-            {
-                lehenengoEszenatokia.id = IRUDIAK_irudiaGehitu(IRUDIA_ESZENA_BORROKA_1);
-                lehenengoPertsonaia.id = IRUDIAK_irudiaGehitu(IRUDIA_PERTSONAIA_NAIRU_CAMINAR_1);
-                irudiaMugitu(lehenengoPertsonaia.id, lehenengoPertsonaia.pos.x, lehenengoPertsonaia.pos.y);
-                irudiakMarraztu();
-                pantailaBerriztu();
-            }
-            if (kont == 2) kont = 0;
-
+            event.key.keysym.sym = TECLA_0;
+            kontBizitzaBarra_Jok1--;
         }
-        if (ebentuL == TECLA_SPACE)
-        {
-            lehenengoEszenatokia.id = IRUDIAK_irudiaGehitu(IRUDIA_ESZENA_BORROKA_1);
-            lehenengoPertsonaia.id = IRUDIAK_irudiaGehitu(IRUDIA_PERTSONAIA_NAIRU_ATAQUE_3);
-            irudiaMugitu(lehenengoPertsonaia.id, lehenengoPertsonaia.pos.x, lehenengoPertsonaia.pos.y);
-            irudiakMarraztu();
-            pantailaBerriztu();
-        }
-        mugituL = STOP;
-
-        //********* Bigarren pertsonaia ******
-        if (mugituR == UPR)
-        {
-
-            for (pixelUp = 0; pixelUp < pixelKopurua; pixelUp++)
-            {
-                bigarrenPertsonaia.pos.y--;
-                irudiaMugitu(bigarrenPertsonaia.id, bigarrenPertsonaia.pos.x, bigarrenPertsonaia.pos.y);
-                irudiakMarraztu();
-                pantailaBerriztu();
-
-                ebentuR = ebentuaJasoGertatuBada();
-                if (ebentuR == TECLA_LEFT)
-                {
-                    aux = MUGIMENDUA_leftDownMugitu(bigarrenPertsonaia.pos);
-                    bigarrenPertsonaia.pos.x = aux.x;
-                }
-                else if (ebentuR == TECLA_RIGHT)
-                {
-                    aux = MUGIMENDUA_rightUpMugitu(bigarrenPertsonaia.pos);
-                    bigarrenPertsonaia.pos.x = aux.x;
-                }
-            }
-            for (pixelDown = 0; pixelDown < pixelKopurua; pixelDown++)
-            {
-                Sleep(1);
-                bigarrenPertsonaia.pos.y++;
-                irudiaMugitu(bigarrenPertsonaia.id, bigarrenPertsonaia.pos.x, bigarrenPertsonaia.pos.y);
-                irudiakMarraztu();
-                pantailaBerriztu();
-                ebentuR = ebentuaJasoGertatuBada();
-                if (ebentuR == TECLA_LEFT)
-                {
-                    aux = MUGIMENDUA_leftDownMugitu(bigarrenPertsonaia.pos);
-                    bigarrenPertsonaia.pos.x = aux.x;
-                }
-                else if (ebentuR == TECLA_RIGHT)
-                {
-                    aux = MUGIMENDUA_rightUpMugitu(bigarrenPertsonaia.pos);
-                    bigarrenPertsonaia.pos.x = aux.x;
-                }
-            }
-        }
-        if (mugituR == RIGHTR)
-        {
-            aux = MUGIMENDUA_rightUpMugitu(bigarrenPertsonaia.pos);
-            bigarrenPertsonaia.pos.x = aux.x;
-            kont++;
-            if (kont == 0)
-            {
-                lehenengoEszenatokia.id = IRUDIAK_irudiaGehitu(IRUDIA_ESZENA_BORROKA_1);
-                bigarrenPertsonaia.id = IRUDIAK_irudiaGehitu(IRUDIA_PERTSONAIA_NAIRU_CAMINAR_2);
-                irudiaMugitu(bigarrenPertsonaia.id, bigarrenPertsonaia.pos.x, bigarrenPertsonaia.pos.y);
-                irudiakMarraztu();
-                pantailaBerriztu();
-            }
-            else if (kont == 1)
-            {
-                lehenengoEszenatokia.id = IRUDIAK_irudiaGehitu(IRUDIA_ESZENA_BORROKA_1);
-                bigarrenPertsonaia.id = IRUDIAK_irudiaGehitu(IRUDIA_PERTSONAIA_NAIRU_CAMINAR_3);
-                irudiaMugitu(bigarrenPertsonaia.id, bigarrenPertsonaia.pos.x, bigarrenPertsonaia.pos.y);
-                irudiakMarraztu();
-                pantailaBerriztu();
-            }
-            else if (kont == 2)
-            {
-                lehenengoEszenatokia.id = IRUDIAK_irudiaGehitu(IRUDIA_ESZENA_BORROKA_1);
-                bigarrenPertsonaia.id = IRUDIAK_irudiaGehitu(IRUDIA_PERTSONAIA_NAIRU_CAMINAR_1);
-                irudiaMugitu(bigarrenPertsonaia.id, bigarrenPertsonaia.pos.x, bigarrenPertsonaia.pos.y);
-                irudiakMarraztu();
-                pantailaBerriztu();
-            }
-            if (kont == 2) kont = 0;
-        }
-        if (mugituR == LEFTR)
-        {
-            aux = MUGIMENDUA_leftDownMugitu(bigarrenPertsonaia.pos);
-            bigarrenPertsonaia.pos.x = aux.x;
-            kont++;
-            if (kont == 0)
-            {
-                lehenengoEszenatokia.id = IRUDIAK_irudiaGehitu(IRUDIA_ESZENA_BORROKA_1);
-                bigarrenPertsonaia.id = IRUDIAK_irudiaGehitu(IRUDIA_PERTSONAIA_NAIRU_CAMINAR_2);
-                irudiaMugitu(bigarrenPertsonaia.id, bigarrenPertsonaia.pos.x, bigarrenPertsonaia.pos.y);
-                irudiakMarraztu();
-                pantailaBerriztu();
-            }
-            else if (kont == 1)
-            {
-                lehenengoEszenatokia.id = IRUDIAK_irudiaGehitu(IRUDIA_ESZENA_BORROKA_1);
-                bigarrenPertsonaia.id = IRUDIAK_irudiaGehitu(IRUDIA_PERTSONAIA_NAIRU_CAMINAR_3);
-                irudiaMugitu(bigarrenPertsonaia.id, bigarrenPertsonaia.pos.x, bigarrenPertsonaia.pos.y);
-                irudiakMarraztu();
-                pantailaBerriztu();
-            }
-            else if (kont == 2)
-            {
-                lehenengoEszenatokia.id = IRUDIAK_irudiaGehitu(IRUDIA_ESZENA_BORROKA_1);
-                bigarrenPertsonaia.id = IRUDIAK_irudiaGehitu(IRUDIA_PERTSONAIA_NAIRU_CAMINAR_1);
-                irudiaMugitu(bigarrenPertsonaia.id, bigarrenPertsonaia.pos.x, bigarrenPertsonaia.pos.y);
-                irudiakMarraztu();
-                pantailaBerriztu();
-            }
-            if (kont == 2) kont = 0;
-
-        }
-        if (ebentuR == TECLA_p)
-        {
-            lehenengoEszenatokia.id = IRUDIAK_irudiaGehitu(IRUDIA_ESZENA_BORROKA_1);
-            bigarrenPertsonaia.id = IRUDIAK_irudiaGehitu(IRUDIA_PERTSONAIA_NAIRU_ATAQUE_3);
-            irudiaMugitu(bigarrenPertsonaia.id, bigarrenPertsonaia.pos.x, bigarrenPertsonaia.pos.y);
-            irudiakMarraztu();
-            pantailaBerriztu();
-        }
-        mugituR = STOP;
-        egoera = JOKOA_egoera(lehenengoPertsonaia, bigarrenPertsonaia);
-
-    } while (egoera == JOLASTEN);
+        irudiakMarraztu();
+        pantailaBerriztu();
+        //*********** Denbora kudeatu,0 galdu  ****** 
+        tenporizadoreEgoera = JOKOA_denboraKudeatuEtaBistaratu(&tenporizadorea);
+        //****** Puntuazioa gorde **************
+        *(puntuazioa_Jok1) = kontPuntuazioa_Jok1;
+        *(puntuazioa_Jok2) = kontPuntuazioa_Jok2;
+        //*********** Jokalarien egoera **************
+        egoera = JOKOA_egoera(pertsonaia_Jok1, pertsonaia_Jok2, kontBizitzaBarra_Jok1, kontBizitzaBarra_Jok2, tenporizadorea);
+    } while ((egoera == JOLASTEN));
 
     //***************************** Bukle amaiera **************************
 
@@ -308,26 +137,16 @@ EGOERA JOKOA_jokatu(int jokalaria)
 
 
 
-EGOERA JOKOA_egoera(JOKO_ELEMENTUA lehenengoPertsonaia, JOKO_ELEMENTUA bigarrenPertsonaia)
+EGOERA JOKOA_egoera(JOKO_ELEMENTUA pertsonaia_Jok1, JOKO_ELEMENTUA pertsonaia_Jok2, int bizitzaBarra_Jok1, int bizitzaBarra_Jok2, int tenporizadorea)
 {
     EGOERA ret = JOLASTEN;
 
-    if (lehenengoPertsonaia.pos.x <= 40 || lehenengoPertsonaia.pos.x >= 1020)
-    {
-        ret = GALDU;
-    }
-    else if (bigarrenPertsonaia.pos.x <= 40 || bigarrenPertsonaia.pos.x >= 1020)
-    {
-        ret = GALDU;
-    }
+    if (pertsonaia_Jok1.pos.x <= 40 || pertsonaia_Jok1.pos.x >= 1020) ret = GALDU;
+    else if (pertsonaia_Jok2.pos.x <= 40 || pertsonaia_Jok2.pos.x >= 1020) ret = GALDU;
+    if (bizitzaBarra_Jok1 == 0 || bizitzaBarra_Jok2 == 0) ret = GALDU;
+    if (tenporizadorea == 0) ret = GALDU;
 
     return ret;
-}
-
-void bizitzaBarrak(int P1life, int P2life) {
-	karratuaMarraztu(155, 30, P1life, 55, 0, 255, 255, 150);
-	karratuaMarraztu(750, 30, P2life, 55, 0, 255, 255, 150);
-	pantailaBerriztu();
 }
 
 
@@ -345,7 +164,7 @@ int  AMAIERA_jokoAmaierakoa(EGOERA egoera)
         idAudioGame = loadSound(JOKOA_SOUND_LOOSE);
         playSound(idAudioGame);
     }
-    id = BUKAERA_irudiaBistaratu();
+    id = IRUDIA_argazkiaGehitu(BUKAERA_IMAGE,0,0);
     do
     {
         ebentu = ebentuaJasoGertatuBada();
@@ -357,3 +176,70 @@ int  AMAIERA_jokoAmaierakoa(EGOERA egoera)
     return ret;
 }
 
+
+//************** Funtzioak jokoarentzako ***************
+JOKO_ELEMENTUA JOKOA_bizitzaBarra(JOKO_ELEMENTUA bizitzaBarra, char* irudia)
+{
+
+    irudiaKendu(bizitzaBarra.id);
+    bizitzaBarra.id = IRUDIAK_irudiaGehitu(irudia);
+    irudiaMugitu(bizitzaBarra.id, bizitzaBarra.pos.x, bizitzaBarra.pos.y);
+    irudiakMarraztu();
+    pantailaBerriztu();
+
+    return bizitzaBarra;
+}
+
+int IRUDIAK_irudiaGehitu(char* irudiaIzena)
+{
+    int irudiaId = -1;
+    irudiaId = irudiaKargatu(irudiaIzena);
+    return irudiaId;
+}
+
+
+int IRUDIA_argazkiaGehitu(char* irudiaIzena, int posX, int posY)
+{
+    int id = -1;
+    id = irudiaKargatu(irudiaIzena);
+    irudiaMugitu(id, posX, posY);
+    pantailaGarbitu();
+    irudiakMarraztu();
+    pantailaBerriztu();
+    return id;
+}
+
+
+POSIZIOA MUGIMENDUA_rightUpMugitu(POSIZIOA posizioa)
+{
+    posizioa.y = posizioa.y + 20;
+    posizioa.x = posizioa.x + 20;
+    return posizioa;
+}
+
+POSIZIOA MUGIMENDUA_leftDownMugitu(POSIZIOA posizioa)
+{
+    posizioa.y = posizioa.y - 20;
+    posizioa.x = posizioa.x - 20;
+    return posizioa;
+
+}
+
+
+int JOKOA_denboraKudeatuEtaBistaratu(int* tenporizadorea)
+{
+    int ret, denbora;
+    char denboraTextua[10];
+
+   denbora = *(tenporizadorea);
+
+    sprintf(denboraTextua, "%d", (denbora / 215));
+    textuaIdatzi(620, 73, denboraTextua);
+    pantailaBerriztu();
+    denbora--;
+    *(tenporizadorea) = denbora;
+    if ((denbora / 215) == 0) ret = 0;
+    else ret = 1;
+
+    return ret;
+}

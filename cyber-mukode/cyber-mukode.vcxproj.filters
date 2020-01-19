@@ -57,9 +57,6 @@
     <ClCompile Include="game\puntuazioa\src\puntuazio.c">
       <Filter>Source Files\src_GAME\puntuazioa</Filter>
     </ClCompile>
-    <ClCompile Include="game\jokoa\src\funjokoa.c">
-      <Filter>Source Files\src_GAME\jokoa</Filter>
-    </ClCompile>
     <ClCompile Include="game\jokoa\src\jokoa.c">
       <Filter>Source Files\src_GAME\jokoa</Filter>
     </ClCompile>
@@ -80,6 +77,12 @@
     </ClCompile>
     <ClCompile Include="main.c">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="game\jokoa\src\jokalariabat.c">
+      <Filter>Source Files\src_GAME\jokoa</Filter>
+    </ClCompile>
+    <ClCompile Include="game\jokoa\src\jokalariabi.c">
+      <Filter>Source Files\src_GAME\jokoa</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
