@@ -8,7 +8,7 @@
 
 EGOERA JOKOA_jokatu(int jokalaria_Jok1, int jokalaria_Jok2, int* puntuazioa_Jok1, int* puntuazioa_Jok2)
 {
-    int sleepDenbora = 2, tenporizadorea = 2150, tenporizadoreEgoera ,kontBizitzaBarra_Jok1 = 6, kontBizitzaBarra_Jok2 = 6, kontPuntuazioa_Jok1 = 0, kontPuntuazioa_Jok2 = 0;
+    int sleepDenbora = 2, tenporizadorea = 2150, tenporizadoreEgoera ,kontBizitzaBarra_Jok1 = 6, kontBizitzaBarra_Jok2 = 6, kontPuntuazioa_Jok1 = 0, kontPuntuazioa_Jok2 = 0, pausaArgazkiaId = -1, pausaAukera;
     SDL_Event event;
     EGOERA  egoera = JOLASTEN;
     JOKO_ELEMENTUA pertsonaia_Jok1, pertsonaia_Jok2, eszenatokia, bizitzaBarra_Jok1, bizitzaBarra_Jok2, profila_Jok1, profila_Jok2;
@@ -124,6 +124,25 @@ EGOERA JOKOA_jokatu(int jokalaria_Jok1, int jokalaria_Jok2, int* puntuazioa_Jok1
         *(puntuazioa_Jok2) = kontPuntuazioa_Jok2;
         //*********** Jokalarien egoera **************
         egoera = JOKOA_egoera(pertsonaia_Jok1, pertsonaia_Jok2, kontBizitzaBarra_Jok1, kontBizitzaBarra_Jok2, tenporizadorea);
+
+        if (event.key.keysym.sym == TECLA_ESCAPE)
+        {
+            audioInit();
+            loadTheMusic(JOKOA_SOUND_PAUSA);
+            playMusic();
+            pausaAukera = MENU_pausaMenua(&pausaArgazkiaId);
+            switch (pausaAukera)
+            {
+                case 0: egoera = 5; break;
+                case 1:
+                    egoera = JOLASTEN;
+                    irudiaKendu(pausaArgazkiaId);
+                    pantailaBerriztu();
+                    break;
+            }
+            pausaArgazkiaId = -1;
+            event.key.keysym.sym = TECLA_0;
+        }
     } while ((egoera == JOLASTEN));
 
     //***************************** Bukle amaiera **************************

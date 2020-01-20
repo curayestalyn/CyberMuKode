@@ -39,26 +39,6 @@ void MENU_menuArgazkiak(int aukera)
 }
 
 
-/*void MENU_menuPuntuazioa()
-{
-    int ebentu = 0, x = 100;
-    char str[128];
-    strcpy_s(str, 128, "kaixo\n");
-    IRUDIA_argazkiaGehitu(IRUDIA_MENU_PUNTUAZIOABISTARATU, 0, 0);
-    //pantailaGarbitu();
-    for (int i = 1; i < 10; i++)
-    {
-        textuaIdatzi(x, 100, str);
-        x += 50;
-        
-    }
-    
-    pantailaBerriztu();
-    do
-    {
-        ebentu = ebentuaJasoGertatuBada();
-    } while (ebentu != TECLA_ESCAPE);
-}*/
 void MENU_menuPuntuazioa()
 {
     int ebentu = 0;
@@ -70,10 +50,46 @@ void MENU_menuPuntuazioa()
     printf("%i", puntuazioKop);
 
     PUNTUAZIOA_puntuazioakPantailaratu(puntuazioa, puntuazioKop);
-    //PUNTUAZIOA_fitxategiaIdatzi(FITXEROAREN_IZENA, puntuazioa);
     pantailaBerriztu();
     do
     {
         ebentu = ebentuaJasoGertatuBada();
     } while (ebentu != TECLA_ESCAPE);
+}
+
+int MENU_pausaMenua(int* pausaId)
+{
+    audioInit();
+    loadTheMusic(JOKOA_SOUND);
+    playMusic();
+
+
+    int ebentu = 0, pausaPosizioa = 1;
+    int id = 0;
+    id = IRUDIA_argazkiaGehitu(IRUDIA_MENU_PAUSAJARRAITU, 0, 0);
+    do
+    {
+        ebentu = ebentuaJasoGertatuBada();
+        if (ebentu == TECLA_DOWN) {
+            pausaPosizioa--;
+            id = MENU_pausaArgazkiak(pausaPosizioa);
+        }
+        if (ebentu == TECLA_UP) {
+            pausaPosizioa++;
+            id = MENU_pausaArgazkiak(pausaPosizioa);
+        }
+        if (pausaPosizioa >= 1) pausaPosizioa = 1;
+        if (pausaPosizioa <= 0) pausaPosizioa = 0;
+
+    } while (ebentu != TECLA_RETURN);
+    *(pausaId) = id;
+    return pausaPosizioa;
+}
+
+int MENU_pausaArgazkiak(int aukera)
+{
+    int id = -1;
+    if (aukera >= 1 && aukera < 2) id = IRUDIA_argazkiaGehitu(IRUDIA_MENU_PAUSAJARRAITU, 0, 0);
+    if (aukera >= 0 && aukera < 1) id = IRUDIA_argazkiaGehitu(IRUDIA_MENU_PAUSAMENU, 0, 0);
+    return id;
 }
