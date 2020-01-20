@@ -1,1 +1,15 @@
-﻿
+﻿  ebentoak.c
+  graphics.c
+  imagen.c
+  soinua.c
+  text.c
+  jokalariabat.c
+  jokalariabi.c
+  jokoa.c
+  menu.c
+  minijokoa.c
+  puntuazio.c
+  main.c
+  Generating Code...
+     Creating library E:\IKASGAIAK\POPBL_GIT\Jokoa\CyberMukode\Debug\cyber-mukode.lib and object E:\IKASGAIAK\POPBL_GIT\Jokoa\CyberMukode\Debug\cyber-mukode.exp
+  cyber-mukode.vcxproj -> E:\IKASGAIAK\POPBL_GIT\Jokoa\CyberMukode\Debug\cyber-mukode.exe

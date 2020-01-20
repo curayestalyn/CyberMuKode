@@ -256,40 +256,6 @@ int MINIJOKOA_pertsonaienArgazkiak(int aukera)
     return jokalaria;
 }
 
-int MINIJOKOA_pertsonaienAukerak(char* irudiMapaOrg, char* irudiPertsonaia, char* irudiAukera, int* mapaId, int* perId, int* perX, int* perY)
-{
-    int ebentu = 0, idMapa, idPer, menuPosizioa = 4, aukeratuJokalaria = NAIRU;
-    IRUDIA_argazkiaGehitu(irudiAukera, 0, 0);
-    do
-    {
-        ebentu = ebentuaJasoGertatuBada();
-        if (ebentu == TECLA_RIGHT)
-        {
-            menuPosizioa--;
-            aukeratuJokalaria = MINIJOKOA_pertsonaienArgazkiak(menuPosizioa);
-        }
-        if (ebentu == TECLA_LEFT)
-        {
-            menuPosizioa++;
-            aukeratuJokalaria = MINIJOKOA_pertsonaienArgazkiak(menuPosizioa);
-        }
-        if (menuPosizioa >= 4) menuPosizioa = 4;
-        if (menuPosizioa <= 0) menuPosizioa = 1;
-
-    } while (ebentu != TECLA_RETURN);
-
-
-    idMapa = IRUDIAK_irudiaGehitu(irudiMapaOrg);
-    (*mapaId) = idMapa;
-    idPer = IRUDIAK_irudiaGehitu(irudiPertsonaia);
-    (*perId) = idPer;
-    (*perY) += 30;
-    irudiaMugitu(*perId, *perX, *perY);
-    irudiakMarraztu();
-    pantailaBerriztu();
-
-    return aukeratuJokalaria;
-}
 
 
 int MINIJOKOA_jokalariarenDesplazamendua(JOKO_ELEMENTUA jokalaria, char* irudia)

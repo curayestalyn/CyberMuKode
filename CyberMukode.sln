@@ -7,12 +7,18 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cyber-mukode", "cyber-mukod
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		cyber-mukodea|x64 = cyber-mukodea|x64
+		cyber-mukodea|x86 = cyber-mukodea|x86
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F0EEF6FD-4DBA-48A0-B60B-CA6E2E73F80E}.cyber-mukodea|x64.ActiveCfg = cyber-mukodea|x64
+		{F0EEF6FD-4DBA-48A0-B60B-CA6E2E73F80E}.cyber-mukodea|x64.Build.0 = cyber-mukodea|x64
+		{F0EEF6FD-4DBA-48A0-B60B-CA6E2E73F80E}.cyber-mukodea|x86.ActiveCfg = cyber-mukodea|Win32
+		{F0EEF6FD-4DBA-48A0-B60B-CA6E2E73F80E}.cyber-mukodea|x86.Build.0 = cyber-mukodea|Win32
 		{F0EEF6FD-4DBA-48A0-B60B-CA6E2E73F80E}.Debug|x64.ActiveCfg = Debug|x64
 		{F0EEF6FD-4DBA-48A0-B60B-CA6E2E73F80E}.Debug|x64.Build.0 = Debug|x64
 		{F0EEF6FD-4DBA-48A0-B60B-CA6E2E73F80E}.Debug|x86.ActiveCfg = Debug|Win32
