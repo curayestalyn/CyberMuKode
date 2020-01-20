@@ -243,3 +243,4 @@ int JOKOA_denboraKudeatuEtaBistaratu(int* tenporizadorea)
 
     return ret;
 }
+

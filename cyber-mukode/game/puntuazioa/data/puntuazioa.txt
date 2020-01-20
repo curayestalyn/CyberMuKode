@@ -2,3 +2,17 @@
 1	d	0
 0	estalyn	3072
 1	unai	1024
+0	andoni	0
+1	estalyn	0
+0	andoni	0
+1	esralyn	3072
+0	 an	512
+1	b	512
+0	d	512
+1	d	0
+0	pene	0
+1	pene2ahora con mas crema	0
+0	andoni	0
+1	otitamicojoncita	0
+0	g	0
+1	u	3072
